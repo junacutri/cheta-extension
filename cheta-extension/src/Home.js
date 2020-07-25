@@ -8,7 +8,10 @@ class Home extends Component {
     this.state = {
       // uniqueCode: `ChETA${this.makeid(24)}`,
       uniqueCode: `cheta-detectme_`,
-      loadingUniqueCode: false
+      loadingUniqueCode: false,
+      inputs: {
+        priceperword: '0.00'
+      }
     }
   }
 
@@ -49,6 +52,20 @@ class Home extends Component {
     var config = {
       code: this.state.uniqueCode
     };
+
+    if(typeof this.state.inputs.priceperword === 'number') {
+      if(this.state.inputs.priceperword > 0) {
+        config['priceperword'] = this.state.inputs.priceperword;
+      }
+    }
+
+    var css = "@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap'); #cheta-flt-dv { z-index: 999; position: fixed; width: 140px; height: 340px; bottom: 40%; right: 40px; background-color: #B0FF8B; color: black; border-radius: 20px; text-align: center; box-shadow: 2px 2px 3px #999; } .cheta-flt-p { margin: 2px; font-family: 'Special Elite'; font-size: 14px; }";
+    chrome.tabs.insertCSS({code: css});
+
+    chrome.tabs.executeScript({
+      file: 'jquery.js'
+    });
+
     chrome.tabs.executeScript({
       code: 'var config = ' + JSON.stringify(config)
     }, function() {
@@ -57,6 +74,15 @@ class Home extends Component {
       });
     })
 
+  }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    var inputs = this.state.inputs;
+    inputs[name] = value;
+    this.setState({
+      inputs: inputs
+    })
   }
 
   render() {
@@ -74,6 +100,8 @@ class Home extends Component {
             <p>Code: <span className="resalted">{this.state.uniqueCode}</span></p>
             <p>3. When ready, click start</p>
             { this.state.loadingUniqueCode ? <p>Loading...</p> : <a href="#" onClick={this.nextTapped_det}>Start</a> }
+            <hr/>
+            <p>Price per word: </p><input name="priceperword" value={this.state.inputs.priceperword} onChange={this.handleInputChange} type="number" step="0.01"/>
           </div>
         </div>
         <div className="footer">
