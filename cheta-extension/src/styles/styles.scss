@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+html{
+  width:100%;
+}
+body{
+  margin: 0px;
+  height: 410px;
+  width: 280px;
+  font-family: 'Special Elite', sans-serif;
+  background: white;
+
+  .header {
+    width: 280px;
+    height: 50px;
+    margin: 0px;
+    background-color: #B0FF8B;
+    padding: 6px 0px;
+
+    h1 {
+      font-family: 'Special Elite';
+      font-size: 28px;
+      opacity: 0.9;
+      margin: 0px 4px 0px 4px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0px 4px;;
+      font-family: 'Special Elite';
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .contentBox {
+    width: 280px;
+    height: 360px;
+
+    .resalted {
+      background-color: rgba(176, 255, 139, 0.7);
+      text-decoration: underline;
+    }
+
+    .no-tf-dtctd {
+      margin: 0 10px;
+      text-align: center;
+      font-size: 14px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+
+      a {
+        text-align: right;
+      }
+    }
+  }
+}

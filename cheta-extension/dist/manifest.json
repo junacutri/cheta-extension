@@ -1,0 +1,13 @@
+{
+    "name": "ChETA: Chrome Extension for Text Analysis",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "ChETA: Chrome Extension for Text Analysis",
+    "icons": {
+        "512": "logo512.png"
+    },
+    "browser_action": {
+        "default_icon": "logo512.png",
+        "default_popup": "popup.html"
+    }
+}
