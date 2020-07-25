@@ -5,7 +5,7 @@ html{
 }
 body{
   margin: 0px;
-  height: 410px;
+  height: 450px;
   width: 280px;
   font-family: 'Special Elite', sans-serif;
   background: white;
@@ -30,6 +30,19 @@ body{
       font-family: 'Special Elite';
       font-weight: 400;
       font-size: 14px;
+    }
+  }
+
+  .footer {
+    width: 280px;
+    height: 40px;
+    margin: 0px;
+    background-color: #B0FF8B;
+    padding: 6px 0px;
+    text-align: center;
+
+    a {
+      text-decoration: none;
     }
   }
 

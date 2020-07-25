@@ -9,5 +9,13 @@
     "browser_action": {
         "default_icon": "logo512.png",
         "default_popup": "popup.html"
-    }
+    },
+    "background": {
+      "scripts": ["app/background.js"],
+      "persistent": false
+    },
+    "permissions": [
+      "activeTab",
+      "<all_urls>"
+    ]
 }
