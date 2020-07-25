@@ -6,15 +6,13 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      uniqueCode: '',
+      // uniqueCode: `ChETA${this.makeid(24)}`,
+      uniqueCode: `cheta-detectme_`,
       loadingUniqueCode: false
     }
   }
 
   componentDidMount() {
-    this.setState({
-      uniqueCode: `ChETA${this.makeid(24)}`
-    })
     this.loadJquery();
   }
 
@@ -48,10 +46,17 @@ class Home extends Component {
 
   nextTapped_det = () => {
     console.log("test");
-
+    var config = {
+      code: this.state.uniqueCode
+    };
     chrome.tabs.executeScript({
-      file: 'switch.js'
-    });
+      code: 'var config = ' + JSON.stringify(config)
+    }, function() {
+      chrome.tabs.executeScript({
+        file: 'switch.js'
+      });
+    })
+
   }
 
   render() {
@@ -63,13 +68,12 @@ class Home extends Component {
         </div>
         <div className="contentBox">
           <div className="no-tf-dtctd">
-            <p><b>No textfield detected</b></p>
             <p>To start analysing a textfield, <span className="resalted">follow the steps</span>:</p>
             <p>1. <span className="resalted">Locate the field</span> you want to analyse</p>
             <p>2. Replace or <span className="resalted">add</span> anywhere on the field <span className="resalted">the following code</span>:</p>
             <p>Code: <span className="resalted">{this.state.uniqueCode}</span></p>
-            <p>3. When ready, click next</p>
-            { this.state.loadingUniqueCode ? <p>Loading...</p> : <a href="#" onClick={this.nextTapped_det}>Next</a> }
+            <p>3. When ready, click start</p>
+            { this.state.loadingUniqueCode ? <p>Loading...</p> : <a href="#" onClick={this.nextTapped_det}>Start</a> }
           </div>
         </div>
         <div className="footer">
