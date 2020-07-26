@@ -1,10 +1,12 @@
+
 function init() {
-  console.log(config);
+  console.log("Initializing ChETA");
   var link = document.createElement('link');
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('type', 'text/css');
   link.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
   document.head.appendChild(link);
+
   if(!config.code) {
     console.log("Error loading ChETA: Unique code not found")
     return;
@@ -42,7 +44,7 @@ function init() {
   finalHTML += '<p class="cheta-pfnt">Chars: <span id="cheta-data-charcount">'+text.length+'</span></p>';
   if(config.priceperword) {
     var priceVal = text.split(" ").length * config.priceperword;
-    finalHTML += '<p class="cheta-pfnt">Total PPW: <span id="cheta-data-priceperword">'+priceVal.toFixed(2)+'</span></p>';
+    finalHTML += '<p class="cheta-pfnt">Total PPW: $<span id="cheta-data-priceperword">'+priceVal.toFixed(2)+'</span></p>';
   }
   finalHTML += '</div>';
   div.innerHTML = finalHTML;
