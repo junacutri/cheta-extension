@@ -7,7 +7,7 @@ class Home extends Component {
     this.state = {
       uniqueCode: `<cheta>`,
       inputs: {
-        priceperword: '0.00'
+        priceperword: '0.05'
       }
     }
   }
